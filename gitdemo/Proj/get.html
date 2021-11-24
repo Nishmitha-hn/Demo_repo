@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <style>
+            body{
+                background-color: cadetblue;
+            }
+
+            div{
+                margin-top: 150px;
+                margin-left: 600px;
+            }
+            label{
+                font-size: larger;
+            }
+            input{
+                height: 35px;
+                padding: 10px;
+            }
+        </style>
+    
+
+        <script>
+            function submitForm(form){
+                
+                const age = form.age.value;
+                
+                
+                var url = "https://zgritn03j0.execute-api.us-east-2.amazonaws.com/prod/getagerecords?age=" + age;
+
+                document.getElementById("myform").action = url;
+
+                form.submit();
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <div>
+        <form id = "myform" name = "myform" action = "" method = "GET">
+            <label for = "age">Age:</label><br><br>
+            <input type = "age" name = "age" id = "age"><br><br>
+
+            
+
+            <input type = "button" onclick = "submitForm(this.form)" value = "Submit">
+        </form>
+    </div>
+    </body>
+</html>

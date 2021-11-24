@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <style>
+            body{
+                background-color: cadetblue;
+            }
+
+            div{
+                margin-top: 150px;
+                margin-left: 600px;
+            }
+            label{
+                font-size: larger;
+            }
+            input{
+                height: 35px;
+                padding: 10px;
+            }
+        </style>
+
+        <script>
+            function submitForm(form){
+                
+                const email = form.email.value;
+                const password = form.password.value;
+                
+                var url = "https://zgritn03j0.execute-api.us-east-2.amazonaws.com/prod/login?email=" + email + "&password=" + password;
+
+                document.getElementById("myform").action = url;
+
+                form.submit();
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <div>
+            <h1>LOGIN</h1>
+        <form id = "myform" name = "myform" action = "" method = "POST">
+            <label for = "email">Email:</label><br><br>
+            <input type = "email" name = "email" id = "email"><br><br>
+
+            <label for = "password">Password:</label><br><br>
+            <input type = "password" name = "password" id = "password"><br><br>
+
+            <input type = "button" onclick = "submitForm(this.form)" value = "Submit">
+        </form>
+    </div>
+    </body>
+</html>
